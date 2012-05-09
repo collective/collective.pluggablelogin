@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<portlets 
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    i18n:domain="plone">
+
+ <portletmanager
+   name="collective.pluggablelogin"
+   type="collective.pluggablelogin.interfaces.ILoginPortletManager"
+ />
+
+ <portlet
+   addview="portlets.Register"
+   title="Register"
+   description="A portlet which can render a registration form"
+   i18n:attributes="title;
+                    description">
+   <for interface="plone.app.portlets.interfaces.IColumn" />
+ </portlet>
+
+ <assignment
+     manager="collective.pluggablelogin"
+     category="context"
+     key="/"
+     type="portlets.Login"
+     name="login"
+     />
+
+ <assignment
+     manager="collective.pluggablelogin"
+     category="context"
+     key="/"
+     type="portlets.Register"
+     name="register"
+     />
+
+</portlets>

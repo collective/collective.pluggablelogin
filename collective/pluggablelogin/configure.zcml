@@ -1,0 +1,52 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:cmf="http://namespaces.zope.org/cmf"
+    xmlns:gs="http://namespaces.zope.org/genericsetup"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="collective.pluggablelogin">
+
+  <!-- Include configuration for dependencies listed in setup.py -->
+  <includeDependencies package="." />
+
+  <adapter
+    factory=".renderer.LoginPortletManagerRenderer"
+    provides="plone.portlets.interfaces.IPortletManagerRenderer"
+    for="zope.interface.Interface zope.publisher.interfaces.browser.IDefaultBrowserLayer zope.publisher.interfaces.browser.IBrowserView collective.pluggablelogin.interfaces.ILoginPortletManager"
+    />
+
+  <cmf:registerDirectory
+      name="skins"
+      directory="skins"
+      recursive="True"
+      />
+
+  <browser:page
+    for="Products.CMFCore.interfaces.ISiteRoot"
+    class="plone.app.portlets.browser.manage.ManageContextualPortlets"
+    name="manage-login-portlets"
+    template="manage_portlets.pt"
+    permission="plone.app.portlets.ManagePortlets"
+    />
+
+  <plone:portlet
+    name="portlets.Register"
+    interface=".register_portlet.IRegisterPortlet"
+    assignment=".register_portlet.Assignment"
+    renderer=".register_portlet.Renderer"
+    addview=".register_portlet.AddForm"
+    />
+
+  <gs:registerProfile
+    name="default"
+    title="Pluggable Login Page"
+    directory="profiles/default"
+    description="A login form driven by a portlet manager"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
+  <!-- -*- extra stuff goes here -*- -->
+
+</configure>

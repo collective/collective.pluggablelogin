@@ -1,0 +1,22 @@
+<dl class="login-portlets"
+    tal:attributes="class python:'login-portlets enableFormTabbing' if len(options['portlets']) > 1 else 'login-portlets'">
+<tal:block repeat="portlet options/portlets">
+	 <dt tal:attributes="id string:fieldsetlegend-${portlet/hash}"
+	 	 tal:content="portlet/assignment/data/title|nothing"
+	 	 tal:condition="python:len(options['portlets']) > 1">Title</dt>
+     <dd tal:attributes="id string:fieldset-${portlet/hash}">
+		<div tal:attributes="id string:portletwrapper-${portlet/hash};
+		                     class string:portletWrapper kssattr-portlethash-${portlet/hash};"
+		     tal:content="structure python:view.safe_render(portlet['renderer'])" />
+     </dd>
+</tal:block>
+</dl>
+
+<div class="managePortletsLink" tal:condition="view/can_manage_portlets"
+      i18n:domain="plone">
+  <a title="View portlet management screen"
+     i18n:attributes="title"
+     i18n:translate="manage_portlets_link"
+     tal:attributes="href string:${view/base_url}/@@manage-login-portlets"
+     >Manage portlets</a>
+</div>
