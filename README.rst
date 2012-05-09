@@ -5,7 +5,7 @@ Introduction
 with a template using a portlet manager, so that various login
 components can be configured.
 
-.. image: screenshot.png
+.. image: https://github.com/davisagli/collective.pluggablelogin/raw/master/screenshot.png
 
 Configuration
 -------------
