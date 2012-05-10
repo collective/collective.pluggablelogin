@@ -3,5 +3,10 @@
       enctype="multipart/form-data"
       tal:define="view nocall:view/form">
 	<div metal:use-macro="context/base-subpageform.html/form" />
+	<input tal:define="came_from request/form/came_from|nothing"
+	       tal:condition="came_from"
+	       type="hidden"
+	       name="came_from"
+	       tal:attributes="value came_from" />
     <input tal:replace="structure context/@@authenticator/authenticator" />
 </form>
