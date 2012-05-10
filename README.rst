@@ -17,3 +17,8 @@ Now if you go to /login while logged in as a Manager, you'll see a
 login portlets. By default the standard login portlet and a
 registration form portlet are enabled (the latter is only shown
 if self registration is enabled for the site).
+
+Credits
+=======
+
+Developed by David Glick and `Groundwire Consulting <http://groundwireconsulting.com>`_. Sponsored by the `Innocence Project <http://www.innocenceproject.org/>`_.
