@@ -4,6 +4,10 @@ Changelog
 1.1 (unreleased)
 ----------------
 
+* Fix issue with empty <div> generated on login page after trailing </html>
+  end tag.
+  [davidjb]
+
 
 1.0 (2012-05-10)
 ----------------

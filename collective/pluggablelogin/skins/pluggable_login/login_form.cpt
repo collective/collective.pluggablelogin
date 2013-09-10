@@ -38,8 +38,8 @@ body.template-login_form #content { text-align: left; }
 
 </body>
 </html>
-<div metal:define-macro="login">
-	<tal:block tal:condition="python:template.getId() != 'login_form'">
-		<div metal:use-macro="context/portal_skins/plone_login/login_form/macros/login" />
-	</tal:block>
-</div>
+<tal:login_form metal:define-macro="login">
+    <tal:block tal:condition="python:template.getId() != 'login_form'">
+        <div metal:use-macro="context/portal_skins/plone_login/login_form/macros/login" />
+    </tal:block>
+</tal:login_form>
