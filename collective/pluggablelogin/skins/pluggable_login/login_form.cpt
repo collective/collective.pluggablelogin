@@ -13,13 +13,23 @@
     <div metal:fill-slot="style_slot">
 <style type="text/css">
 .login-portlet-wrapper {
-	width: 50%;
-	margin: auto;
+    width: 50%;
+    margin: auto;
 }
 .login-portlets dt.portletHeader {
-	display: none;
+    display: none;
 }
-body.template-login_form #content { text-align: left; }
+.login-portlets {
+    border-left: 0.3em solid #ddd;
+    border-bottom: 0.3em solid #ddd;
+    border-right: 0.3em solid #ddd;
+}
+body.template-login_form #content {
+    text-align: left;
+}
+.portletLogin {
+    text-align: center;
+}
 </style>
     </div>
 </head>

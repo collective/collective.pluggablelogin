@@ -4,6 +4,8 @@ Changelog
 1.1 (unreleased)
 ----------------
 
+* Improve styles and formatting for login page.
+  [davidjb]
 * Fix issue with empty <div> generated on login page after trailing </html>
   end tag.
   [davidjb]
