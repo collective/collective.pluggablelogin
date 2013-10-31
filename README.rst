@@ -23,3 +23,7 @@ Credits
 
 Developed by David Glick and `Groundwire Consulting <http://groundwireconsulting.com>`_. Sponsored by the `Innocence Project <http://www.innocenceproject.org/>`_.
 
+To-do
+=====
+
+* Refactor inline styles on the logged in or out views.

@@ -14,7 +14,10 @@
 <style type="text/css">
 .login-portlet-wrapper {
     width: 50%;
-    margin: auto;
+    margin: 1em auto;
+}
+#content .login-portlet-wrapper {
+    text-align: left;
 }
 .login-portlets dt.portletHeader {
     display: none;
@@ -23,9 +26,6 @@
     border-left: 0.3em solid #ddd;
     border-bottom: 0.3em solid #ddd;
     border-right: 0.3em solid #ddd;
-}
-body.template-login_form #content {
-    text-align: left;
 }
 .portletLogin {
     text-align: center;
