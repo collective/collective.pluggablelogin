@@ -15,7 +15,7 @@
                  tal:define="dummy python:request.set('disable_border',1);
                              disable_column_one python:request.set('disable_plone.leftcolumn',1);
                              disable_column_two python:request.set('disable_plone.rightcolumn',1);" />
-     <metal:styles fill-slot="style_slot">
+     <div metal:fill-slot="style_slot">
        <style type="text/css">
           .login-portlet-wrapper {
              width: 50%;
@@ -36,7 +36,7 @@
              text-align: center;
           }
        </style>
-     </metal:styles>
+     </div>
 </head>
 <body>
 
