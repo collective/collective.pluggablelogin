@@ -4,6 +4,9 @@ Changelog
 1.1 (unreleased)
 ----------------
 
+* Add id to the login-portlets div, ensuring the element can be selected
+  on the page.
+  [davidjb]
 * Improve styles for login page, normalising with logged out page.
   [davidjb]
 * Add logged out page templates to display pluggable login.

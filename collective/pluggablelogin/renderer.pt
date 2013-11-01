@@ -1,4 +1,4 @@
-<dl class="login-portlets"
+<dl class="login-portlets" id="login-portlets"
     tal:attributes="class python:'login-portlets enableFormTabbing' if len(options['portlets']) > 1 else 'login-portlets'">
 <tal:block repeat="portlet options/portlets">
 	 <dt tal:attributes="id string:fieldsetlegend-${portlet/hash}"
