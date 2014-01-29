@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.1 (unreleased)
+1.1 (2014-01-30)
 ----------------
 
 * Add id to the login-portlets div, ensuring the element can be selected
