@@ -23,6 +23,7 @@ setup(name='collective.pluggablelogin',
       namespace_packages=['collective'],
       include_package_data=True,
       zip_safe=False,
+      setup_requires=['setuptools-git'],
       install_requires=[
           'setuptools',
           'Products.CMFPlone',
