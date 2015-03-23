@@ -1,12 +1,26 @@
 <form tal:attributes="action string:${context/portal_url}/@@register"
       method="post"
       enctype="multipart/form-data"
-      tal:define="view nocall:view/form">
-	<div metal:use-macro="context/base-subpageform.html/form" />
-	<input tal:define="came_from request/form/came_from|nothing"
-	       tal:condition="came_from"
-	       type="hidden"
-	       name="came_from"
-	       tal:attributes="value came_from" />
+      tal:define="is_formlib view/is_formlib;
+                  view nocall:view/form;">
+  <tal:formlib condition="is_formlib">
+    <div metal:use-macro="context/base-subpageform.html/form" />
+    <input tal:define="came_from request/form/came_from|nothing"
+           tal:condition="came_from"
+           type="hidden"
+           name="came_from"
+           tal:attributes="value came_from" />
     <input tal:replace="structure context/@@authenticator/authenticator" />
+  </tal:formlib>
+  <tal:z3cform condition="not:is_formlib">
+    <metal:block use-macro="context/@@ploneform-macros/form">
+        <metal:bottom fill-slot="formbottom">
+        <input tal:define="came_from request/form/came_from|nothing"
+                tal:condition="came_from"
+                type="hidden"
+                name="came_from"
+                tal:attributes="value came_from" />
+        </metal:bottom>
+    </metal:block>
+  </tal:z3cform>
 </form>

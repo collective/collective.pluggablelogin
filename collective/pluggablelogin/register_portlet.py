@@ -1,5 +1,6 @@
 from plone.portlets.interfaces import IPortletDataProvider
 from zope.interface import implements
+from zope.formlib.interfaces import IForm
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.CMFCore.utils import getToolByName
 
@@ -34,6 +35,11 @@ class Renderer(base.Renderer):
         form = self.context.restrictedTraverse('@@register')
         form.update()
         return form
+
+    @property
+    def is_formlib(self):
+        return IForm.providedBy(self.form)
+
 
     render = ViewPageTemplateFile('register_portlet.pt')
 
