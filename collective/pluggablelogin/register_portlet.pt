@@ -1,18 +1,27 @@
-<form tal:attributes="action string:${context/portal_url}/@@register"
-      method="post"
-      enctype="multipart/form-data"
-      tal:define="is_formlib view/is_formlib;
-                  view nocall:view/form;">
+<tal:register define="is_formlib view/is_formlib;
+                      view nocall:view/form;">
   <tal:formlib condition="is_formlib">
-    <div metal:use-macro="context/base-subpageform.html/form" />
-    <input tal:define="came_from request/form/came_from|nothing"
-           tal:condition="came_from"
-           type="hidden"
-           name="came_from"
-           tal:attributes="value came_from" />
-    <input tal:replace="structure context/@@authenticator/authenticator" />
+    <tal:comment replace="nothing">
+        This macro provides the form's contents only so we need
+        to provide the outer form.
+    </tal:comment>
+    <form tal:attributes="action string:${context/portal_url}/@@register"
+        method="post"
+        enctype="multipart/form-data">
+        <div metal:use-macro="context/base-subpageform.html/form" />
+        <input tal:define="came_from request/form/came_from|nothing"
+            tal:condition="came_from"
+            type="hidden"
+            name="came_from"
+            tal:attributes="value came_from" />
+        <input tal:replace="structure context/@@authenticator/authenticator" />
+    </form>
   </tal:formlib>
   <tal:z3cform condition="not:is_formlib">
+    <tal:comment replace="nothing">
+        This macro provides the form tag automatically and reads the
+        form action URL from the current view.
+    </tal:comment>
     <metal:block use-macro="context/@@ploneform-macros/form">
         <metal:bottom fill-slot="formbottom">
         <input tal:define="came_from request/form/came_from|nothing"

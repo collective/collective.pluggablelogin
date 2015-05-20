@@ -32,14 +32,15 @@ class Renderer(base.Renderer):
 
     @property
     def form(self):
-        form = self.context.restrictedTraverse('@@register')
+        page_name = '@@register'
+        form = self.context.restrictedTraverse(page_name)
+        form.action = self.context.absolute_url() + '/' + page_name
         form.update()
         return form
 
     @property
     def is_formlib(self):
         return IForm.providedBy(self.form)
-
 
     render = ViewPageTemplateFile('register_portlet.pt')
 
