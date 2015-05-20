@@ -34,7 +34,9 @@ class Renderer(base.Renderer):
     def form(self):
         page_name = '@@register'
         form = self.context.restrictedTraverse(page_name)
-        form.action = self.context.absolute_url() + '/' + page_name
+        # For z3cform based registration, form.action depends on request.URL
+        if not self.is_formlib:
+            form.request.URL = self.context.absolute_url() + '/' + page_name
         form.update()
         return form
 
