@@ -32,4 +32,4 @@
         </metal:bottom>
     </metal:block>
   </tal:z3cform>
-</form>
+</tal:register>
