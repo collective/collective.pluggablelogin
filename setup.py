@@ -4,7 +4,7 @@ version = '1.2.2.dev0'
 
 setup(name='collective.pluggablelogin',
       version=version,
-      description="Turns the login form into a portlet manager for easier customization",
+      description="Turns Plone's login form into a portlet manager for easier customization",
       long_description=open("README.rst").read() + "\n" +
                        open("CHANGES.txt").read(),
       # Get more strings from
