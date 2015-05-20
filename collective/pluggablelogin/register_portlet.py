@@ -21,6 +21,8 @@ class Assignment(base.Assignment):
 
 class Renderer(base.Renderer):
 
+    register_page = '@@register'
+
     @property
     def available(self):
         mtool = getToolByName(self.context, 'portal_membership')
@@ -31,18 +33,22 @@ class Renderer(base.Renderer):
         return mtool.checkPermission('Add portal member', self.context)
 
     @property
+    def _form(self):
+        return self.context.restrictedTraverse(self.register_page)
+
+    @property
     def form(self):
-        page_name = '@@register'
-        form = self.context.restrictedTraverse(page_name)
+        form = self._form
         # For z3cform based registration, form.action depends on request.URL
         if not self.is_formlib:
-            form.request.URL = self.context.absolute_url() + '/' + page_name
+            form.request.URL = \
+                self.context.absolute_url() + '/' + self.register_page
         form.update()
         return form
 
     @property
     def is_formlib(self):
-        return IForm.providedBy(self.form)
+        return IForm.providedBy(self._form)
 
     render = ViewPageTemplateFile('register_portlet.pt')
 
